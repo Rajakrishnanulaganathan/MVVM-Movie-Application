@@ -1,7 +1,5 @@
 package com.rk.mvvmmovieapplication.data.remote;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.rk.mvvmmovieapplication.utils.Constants;
 
 import retrofit2.Retrofit;
@@ -20,6 +18,5 @@ public class NetworkService {
     }
 
 
-
-
 }
+

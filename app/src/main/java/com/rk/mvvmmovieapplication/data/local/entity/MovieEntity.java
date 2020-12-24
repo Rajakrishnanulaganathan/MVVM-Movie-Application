@@ -1,46 +1,20 @@
 package com.rk.mvvmmovieapplication.data.local.entity;
 
-import android.widget.ImageView;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.databinding.BindingAdapter;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-import androidx.room.TypeConverters;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.rk.mvvmmovieapplication.data.local.converter.Integertypeconverter;
-import com.rk.mvvmmovieapplication.utils.Constants;
-import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;
-import java.util.List;
+
 @Entity(tableName = "movies")
 public class MovieEntity implements Serializable {
-    public Long getPage() {
-        return page;
-    }
-
-    public void setPage(Long page) {
-        this.page = page;
-    }
-
-    public Long getTotalPages() {
-        return totalPages;
-    }
-
-    public void setTotalPages(Long totalPages) {
-        this.totalPages = totalPages;
-    }
-
     @Expose
     private Long page;
-
     @Expose
     private Long totalPages;
-
     @SerializedName("popularity")
     @Expose
 
@@ -71,7 +45,6 @@ public class MovieEntity implements Serializable {
     @PrimaryKey
     @NonNull
     private String originalTitle;
-
     @SerializedName("title")
     @Expose
     private String title;
@@ -84,6 +57,22 @@ public class MovieEntity implements Serializable {
     @SerializedName("release_date")
     @Expose
     private String releaseDate;
+
+    public Long getPage() {
+        return page;
+    }
+
+    public void setPage(Long page) {
+        this.page = page;
+    }
+
+    public Long getTotalPages() {
+        return totalPages;
+    }
+
+    public void setTotalPages(Long totalPages) {
+        this.totalPages = totalPages;
+    }
 
     public Double getPopularity() {
         return popularity;

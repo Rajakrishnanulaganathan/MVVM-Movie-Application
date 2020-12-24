@@ -1,7 +1,5 @@
 package com.rk.mvvmmovieapplication.utils;
 
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,7 +9,7 @@ public abstract class Paginationscrolllistner extends RecyclerView.OnScrollListe
 
 
     public Paginationscrolllistner(LinearLayoutManager linearLayoutManager) {
-        this.layoutManager=linearLayoutManager;
+        this.layoutManager = linearLayoutManager;
     }
 
     @Override
@@ -35,7 +33,10 @@ public abstract class Paginationscrolllistner extends RecyclerView.OnScrollListe
     }
 
     protected abstract void loadMoreItems();
+
     public abstract int getTotalPageCount();
+
     public abstract boolean isLastPage();
+
     public abstract boolean isLoading();
 }

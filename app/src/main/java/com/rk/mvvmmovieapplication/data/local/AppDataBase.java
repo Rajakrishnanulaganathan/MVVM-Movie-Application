@@ -11,15 +11,15 @@ import com.rk.mvvmmovieapplication.data.local.converter.Integertypeconverter;
 import com.rk.mvvmmovieapplication.data.local.dao.MovieDao;
 import com.rk.mvvmmovieapplication.data.local.entity.MovieEntity;
 
-@Database(entities = MovieEntity.class,version = 2,exportSchema = false)
+@Database(entities = MovieEntity.class, version = 2, exportSchema = false)
 @TypeConverters(Integertypeconverter.class)
-public abstract class Appdatabase extends RoomDatabase {
+public abstract class AppDataBase extends RoomDatabase {
 
-    public static Appdatabase mAppDatabaseInstance;
+    public static AppDataBase mAppDatabaseInstance;
 
-    public static synchronized Appdatabase  getDatabaseInstance(Context context){
-        if(mAppDatabaseInstance==null){
-            mAppDatabaseInstance= Room.databaseBuilder(context,Appdatabase.class,"user.db").allowMainThreadQueries().build();
+    public static synchronized AppDataBase getDatabaseInstance(Context context) {
+        if (mAppDatabaseInstance == null) {
+            mAppDatabaseInstance = Room.databaseBuilder(context, AppDataBase.class, "user.db").allowMainThreadQueries().build();
         }
         return mAppDatabaseInstance;
     }

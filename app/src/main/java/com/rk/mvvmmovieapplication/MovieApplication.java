@@ -2,20 +2,20 @@ package com.rk.mvvmmovieapplication;
 
 import android.app.Application;
 
-import androidx.lifecycle.ViewModelProviders;
-
-import com.rk.mvvmmovieapplication.viewmodels.PopularMovieViewmodel;
+import com.rk.mvvmmovieapplication.data.remote.repository.NetworkRepository;
 
 public class MovieApplication extends Application {
 
-    private PopularMovieViewmodel popularMovieViewmodel;
+    private static NetworkRepository networkRepository;
+
+    public static NetworkRepository getNetworkRepository() {
+        return networkRepository;
+    }
 
     @Override
     public void onCreate() {
         super.onCreate();
-       // popularMovieViewmodel = ViewModelProviders.of(getAc).get(PopularMovieViewmodel.class);
-
+        networkRepository = NetworkRepository.networkRepositoryGetInstance(getApplicationContext());
     }
-
 
 }

@@ -1,8 +1,6 @@
 package com.rk.mvvmmovieapplication;
 
 import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,18 +18,18 @@ import java.util.List;
 
 public class PopularMovieAdapter extends RecyclerView.Adapter<PopularMovieAdapter.PopularMovieViewHolder> {
 
+    private List<MovieEntity> mPopularMovieList;
     private Context mContext;
-    protected List<MovieEntity> mPopularMovieList;
-    private ClickListner clickListner;
+    private ClickListener clickListener;
 
-    public PopularMovieAdapter(Context context) {
+    PopularMovieAdapter(Context context) {
         this.mContext = context;
 
 
     }
 
-    public void setList( List<MovieEntity> articleArrayList){
-        this.mPopularMovieList=articleArrayList;
+    public void setList(List<MovieEntity> articleArrayList) {
+        this.mPopularMovieList = articleArrayList;
     }
 
 
@@ -43,7 +41,7 @@ public class PopularMovieAdapter extends RecyclerView.Adapter<PopularMovieAdapte
 
     @Override
     public void onBindViewHolder(@NonNull PopularMovieViewHolder holder, int position) {
-       Picasso.get().load(Constants.IMAGE_ENDPOINT_PREFIX+mPopularMovieList.get(position).getPosterPath()).into(holder.mPopularMovieImage);
+        Picasso.get().load(Constants.IMAGE_ENDPOINT_PREFIX + mPopularMovieList.get(position).getPosterPath()).into(holder.mPopularMovieImage);
     }
 
     @Override
@@ -51,21 +49,21 @@ public class PopularMovieAdapter extends RecyclerView.Adapter<PopularMovieAdapte
         return mPopularMovieList.size();
     }
 
-    public void setonclicklistner(ClickListner clickListner) {
-        this.clickListner=clickListner;
+    public void setOnClickListener(ClickListener clickListener) {
+        this.clickListener = clickListener;
     }
 
     class PopularMovieViewHolder extends RecyclerView.ViewHolder {
         TextView mPopularMovieTitle;
         ImageView mPopularMovieImage;
+
         PopularMovieViewHolder(@NonNull View itemView) {
             super(itemView);
-            mPopularMovieImage=itemView.findViewById(R.id.popular_image);
+            mPopularMovieImage = itemView.findViewById(R.id.popular_image);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-                    clickListner.clickitems(getAdapterPosition());
+                    clickListener.onClick(getAdapterPosition());
 
                 }
             });
